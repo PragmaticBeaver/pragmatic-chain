@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["es7", "es6", "es5", "dom"],
+    "module": "commonjs",
+    "outDir": "./dist",
+    "declaration": true,
+    "strict": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "src/**/*.spec.ts"]
+}

@@ -1,0 +1,12 @@
+src/*
+.vscode/*
+*.spec.js
+*.spec.ts
+*.spec.d.ts
+nodemon.json
+.prettierrc.json
+.eslintrc.js
+tsconfig.json
+webpack.config.js
+tsconfig.webpack.json
+.gitignore
