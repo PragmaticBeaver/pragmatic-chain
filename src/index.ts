@@ -1,16 +1,3 @@
-import {
-  ChainCallback,
-  ChainToken,
-  IChain,
-  IEventChain,
-  PragmaticEventChain,
-} from "./event-chain";
+import { ChainCallback, IEventChain, EventChain } from "./event-chain";
 
-
-export {
-  ChainCallback,
-  ChainToken,
-  IChain,
-  IEventChain,
-  PragmaticEventChain,
-};
+export { ChainCallback, IEventChain, EventChain as PragmaticEventChain };

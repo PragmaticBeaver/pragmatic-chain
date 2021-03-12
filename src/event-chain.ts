@@ -1,10 +1,3 @@
-interface IChain {
-  add(placeInOrder: number, cb: ChainCallback): ChainToken;
-  remove(token: ChainToken): void;
-  call(...args: unknown[]): Promise<unknown>;
-  isEmpty(): boolean;
-}
-
 interface ChainToken {
   id: number;
 }
@@ -12,7 +5,7 @@ interface ChainToken {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ChainCallback = (...args: any[]) => Promise<any>;
 
-class EventChain implements IChain {
+class Chain {
   private chainLinks: Map<number, ChainCallback> = new Map();
 
   public add(chainIndex: number, cb: ChainCallback): ChainToken {
@@ -72,8 +65,8 @@ export interface IEventChain {
   publish(topic: string, ...args: unknown[]): Promise<unknown>;
 }
 
-export class PragmaticEventChain implements IEventChain {
-  private subs: Map<string, IChain> = new Map();
+export class EventChain implements IEventChain {
+  private subs: Map<string, Chain> = new Map();
 
   public subscribe(
     topic: string,
@@ -82,9 +75,9 @@ export class PragmaticEventChain implements IEventChain {
   ): ChainToken {
     const topicUnknown = !this.subs.has(topic);
     if (topicUnknown) {
-      this.subs.set(topic, new EventChain());
+      this.subs.set(topic, new Chain());
     }
-    const chain = this.subs.get(topic) as IChain;
+    const chain = this.subs.get(topic) as Chain;
     return chain.add(placeInChain, cb);
   }
 

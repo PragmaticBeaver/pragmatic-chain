@@ -1,8 +1,8 @@
-import { PragmaticEventChain } from "./event-chain";
+import { EventChain } from "./event-chain";
 
 describe("EventChain", () => {
   it("should add subscriber", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     const result = sut.subscribe(topic, async () => {
@@ -14,7 +14,7 @@ describe("EventChain", () => {
   });
 
   it("should add subscriber on specified index", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     const expectedIndex = 988756;
@@ -33,7 +33,7 @@ describe("EventChain", () => {
   });
 
   it("should remove subscriber", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     let wasCalled = false;
@@ -48,7 +48,7 @@ describe("EventChain", () => {
   });
 
   it("should only remove specified subscriber", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     let unsubedWasCalled = false;
@@ -69,7 +69,7 @@ describe("EventChain", () => {
   });
 
   it("should call subscriber callback", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     let wasCalled = false;
@@ -83,7 +83,7 @@ describe("EventChain", () => {
   });
 
   it("should call every subscriber callback", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     let firstCbWasCalled = false;
@@ -107,7 +107,7 @@ describe("EventChain", () => {
   });
 
   it("should sort subscriber depending on chainIndex", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
     const firstSubscribedId = "firstSub";
     const lastSubscribedId = "lastSub";
@@ -142,7 +142,7 @@ describe("EventChain", () => {
   });
 
   it("should publish args to subscriber", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     type TestObj = {
@@ -175,7 +175,7 @@ describe("EventChain", () => {
   });
 
   it("should pass intermediate results to successor ChainLink", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     type TestObj = {
@@ -220,7 +220,7 @@ describe("EventChain", () => {
   });
 
   it("shouldn't remove any ChainLink's by none existent chainIndex", async () => {
-    const sut = new PragmaticEventChain();
+    const sut = new EventChain();
     const topic = "testTopic";
 
     let wasCalled = false;
