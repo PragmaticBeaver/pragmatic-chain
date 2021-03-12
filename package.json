@@ -10,13 +10,13 @@
   },
   "keywords": [
     "pragmatic",
-    "framework",
-    "loosely coupled",
-    "plugin",
-    "event",
-    "event bus",
     "chain",
-    "chain of responsibility"
+    "chain of responsibility",
+    "loosely coupled",
+    "event",
+    "asnyc messaging",
+    "messaging",
+    "broker"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
