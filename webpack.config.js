@@ -8,8 +8,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "pragmatic-core.js", // <--- Will be compiled to this single file
-    library: "PragmaticCore",
+    filename: "index.js", // <--- Will be compiled to this single file
+    library: "PragmaticChain",
     libraryTarget: "umd",
     umdNamedDefine: true,
   },

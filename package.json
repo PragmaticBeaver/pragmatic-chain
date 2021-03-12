@@ -1,12 +1,12 @@
 {
-  "name": "pragmatic-core",
-  "version": "0.0.12",
-  "description": "Simple framework to kickstart your application in a pragmatic and loosely coupled way. This project is still 'work in progress', expect breaking changes!",
-  "author": "Dominik Blatzheim",
+  "name": "pragmatic-chain",
+  "version": "1.0.0-beta",
+  "description": "Simple library to handle asnyc messaging with the ability to wait for responses through the chain and also order subscribers by priority.",
+  "author": "PragmaticBeaver",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PragmaticBeaver/pragmatic-core"
+    "url": "https://github.com/PragmaticBeaver/pragmatic-chain"
   },
   "keywords": [
     "pragmatic",
@@ -18,7 +18,7 @@
     "chain",
     "chain of responsibility"
   ],
-  "main": "./dist/pragmatic-core.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"

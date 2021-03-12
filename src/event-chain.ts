@@ -11,7 +11,6 @@ export interface ChainToken {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ChainCallback = (...args: any[]) => Promise<any>;
-
 class ChainLink {
   private callback: ChainCallback;
 
