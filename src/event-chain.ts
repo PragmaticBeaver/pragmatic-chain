@@ -1,4 +1,4 @@
-interface ChainToken {
+export interface ChainToken {
   id: number;
 }
 
