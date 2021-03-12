@@ -1,3 +1,3 @@
 import { ChainCallback, IEventChain, EventChain } from "./event-chain";
 
-export { ChainCallback, IEventChain, EventChain as PragmaticEventChain };
+export { ChainCallback, IEventChain, EventChain };

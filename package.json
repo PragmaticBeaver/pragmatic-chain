@@ -1,6 +1,6 @@
 {
   "name": "pragmatic-chain",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-beta",
   "description": "Simple library to handle asnyc messaging with the ability to wait for responses through the chain and also order subscribers by priority.",
   "author": "PragmaticBeaver",
   "license": "MIT",
