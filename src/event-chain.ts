@@ -11,20 +11,9 @@ export interface ChainToken {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ChainCallback = (...args: any[]) => Promise<any>;
-class ChainLink {
-  private callback: ChainCallback;
-
-  constructor(cb: ChainCallback) {
-    this.callback = cb;
-  }
-
-  public async call(...args: unknown[]): Promise<unknown> {
-    return await this.callback(...args);
-  }
-}
 
 class EventChain implements IChain {
-  private chainLinks: Map<number, ChainLink> = new Map();
+  private chainLinks: Map<number, ChainCallback> = new Map();
 
   public add(chainIndex: number, cb: ChainCallback): ChainToken {
     const indexUsed = this.chainLinks.has(chainIndex);
@@ -32,7 +21,7 @@ class EventChain implements IChain {
       chainIndex = this.getNextIndex(chainIndex);
     }
 
-    this.chainLinks.set(chainIndex, new ChainLink(cb));
+    this.chainLinks.set(chainIndex, cb);
 
     const token: ChainToken = { id: chainIndex };
     return token;
@@ -58,8 +47,8 @@ class EventChain implements IChain {
         continue;
       }
       intermediateResult = intermediateResult
-        ? await chainLink.call(intermediateResult)
-        : await chainLink.call(...args);
+        ? await chainLink(intermediateResult)
+        : await chainLink(...args);
     }
     return intermediateResult;
   }
